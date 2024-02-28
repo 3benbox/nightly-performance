@@ -16,6 +16,8 @@ Deploy an update to a test by updating the manifests and run something like
 kubectl apply -k ./dev-hermetic-amd
 ```
 
+The script that does all the work is located at `./bases/nightly-performance/nightly-performance.sh`. It is run as a cronjob in the kustomization.
+
 ## Limitations
 
 There are 2 secrets required for the tests to send a Grafana annotation and Discord message.

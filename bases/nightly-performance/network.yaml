@@ -15,6 +15,7 @@ spec:
           resourceLimits:
             cpu: "4"
             memory: 1Gi
+            storage: 10Gi
           image: public.ecr.aws/r5b3e0r5/3box/ceramic-one:latest
           storageClass: keramik-ssd
   # Use Kubo with CAS because it still needs pubsub

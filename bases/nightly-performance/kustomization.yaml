@@ -1,0 +1,15 @@
+namespace: nightly-performance
+resources:
+  - rbac.yaml
+  - cron-job.yaml
+
+configMapGenerator:
+  - name: nightly-performance
+    files:
+      - network.yaml
+      - simulation.yaml
+      - podmonitors.yaml
+      - nightly-performance.sh
+  - name: notifications
+    files:
+      - notification-template.json

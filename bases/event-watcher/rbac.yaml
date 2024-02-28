@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: event-watcher-sa
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: event-watcher-role
+rules:
+- apiGroups: [""]
+  resources: ["events"]
+  verbs: ["get", "watch", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: event-watcher-rb
+subjects:
+- kind: ServiceAccount
+  name: event-watcher-sa
+roleRef:
+  kind: Role
+  name: event-watcher-role
+  apiGroup: rbac.authorization.k8s.io

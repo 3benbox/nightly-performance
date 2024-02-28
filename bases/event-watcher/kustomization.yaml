@@ -1,0 +1,5 @@
+#namespace: keramik-nightly-tnet
+namespace: keramik-nightly-dev-hermetic
+resources:
+  - rbac.yaml
+  - deploy.yaml

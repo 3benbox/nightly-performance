@@ -1,0 +1,16 @@
+namespace: nightly-performance-dev-hermetic-amd
+resources:
+  - ../bases/nightly-performance
+  - ./clusterrolebinding.yaml
+
+configMapGenerator:
+  - name: local-config
+    envs:
+      - ./local-config.env
+  - name: affinity
+    files:
+      - ./affinity.yaml
+
+# patch the cronb job to mount the configmap for affinity
+patchesStrategicMerge:
+  - patches/affinity.yaml

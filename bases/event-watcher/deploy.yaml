@@ -1,0 +1,19 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: event-watcher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: event-watcher
+  template:
+    metadata:
+      labels:
+        app: event-watcher
+    spec:
+      serviceAccountName: event-watcher-sa
+      containers:
+      - name: event-watcher
+        image: docker.io/3boxben/event-watcher@sha256:711bbe9b925f519c342cb1a0487009c66c937672ed39525962122bb5cbe9891e

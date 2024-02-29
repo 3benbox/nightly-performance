@@ -20,7 +20,7 @@ spec:
             CERAMIC_ONE_LOG_FORMAT: "json"
           resourceLimits:
             cpu: "4"
-            memory: 1Gi
+            memory: 2Gi
             storage: 10Gi
           image: public.ecr.aws/r5b3e0r5/3box/ceramic-one:latest
           storageClass: keramik-ssd

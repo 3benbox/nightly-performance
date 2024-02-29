@@ -20,7 +20,7 @@ The script that does all the work is located at `./bases/nightly-performance/nig
 
 ## Limitations
 
-There are 2 secrets required for the tests to send a Grafana annotation and Discord message.
+There is a secrets required for the tests to send Discord messages.
 
 Neither are required to run a test, but the tests will fail if they are not present.
 

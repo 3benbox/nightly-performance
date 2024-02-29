@@ -105,16 +105,13 @@ FAILED=$(kubectl  get job simulate-manager -n "${NETWORK_NAMESPACE}" -o jsonpath
 if [[ "$SUCCEEDED" -gt 0 ]]; then
   SIMULATION_STATUS_TAG="succeeded"
   SIMULATION_COLOR=5763719
-  DISCORD_WEBHOOK_URL=$DISCORD_WEBHOOK_URL_SUCCEEDED
   kubectl delete -f network-merged.yaml
 elif [[ "$FAILED" -gt 0 ]]; then
   SIMULATION_STATUS_TAG="failed"
   SIMULATION_COLOR=15548997
-  DISCORD_WEBHOOK_URL=$DISCORD_WEBHOOK_URL_FAILED
 else
   SIMULATION_STATUS_TAG="unknown"
   SIMULATION_COLOR=10070709
-  DISCORD_WEBHOOK_URL=$DISCORD_WEBHOOK_URL_SUCCEEDED
 fi
 
 export SIMULATION_STATUS_TAG
@@ -124,17 +121,8 @@ export DISCORD_WEBHOOK_URL
 # Send Discord notification
 envsubst < /notifications/notification-template.json  > message.json
 cat message.json
-curl -v -H "Content-Type: application/json" -X POST -d @./message.json "$DISCORD_WEBHOOK_URL"
+curl -v -H "Content-Type: application/json" -X POST -d @./message.json "$DISCORD_WEBHOOK_URL_SUCCEEDED"
 
-ANNOTATION=$(cat <<EOF
-{
-  "tags": ["nightly-performance","$CLUSTER_NAME","$KERAMIK_SIMULATE_NAME","$NETWORK_NAMESPACE","$SIMULATION_STATUS_TAG"],
-  "text": "text about the test"
-}
-EOF
-)
-
-curl -H "Content-Type: application/json" -X POST \
-  https://threebox.grafana.net/api/annotations \
-  -H "Authorization: Bearer $GRAFANA_API_KEY" \
-  -d "$ANNOTATION"
+if [[ "$FAILED" -gt 0 ]]; then
+  curl -v -H "Content-Type: application/json" -X POST -d @./message.json "$DISCORD_WEBHOOK_URL_FAILED"
+fi

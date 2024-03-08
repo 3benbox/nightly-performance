@@ -46,6 +46,8 @@ spec:
                   mountPath: /config
                 - name: notifications
                   mountPath: /notifications
+                - name: scripts
+                  mountPath: /scripts
           restartPolicy: Never
           volumes:
             - name: nightly-performance
@@ -54,5 +56,8 @@ spec:
             - name: notifications
               configMap:
                 name: notifications
+            - name: scripts
+              configMap:
+                name: scripts
 
 

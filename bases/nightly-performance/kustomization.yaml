@@ -10,6 +10,9 @@ configMapGenerator:
       - simulation.yaml
       - podmonitors.yaml
       - nightly-performance.sh
+  - name: scripts
+    files:
+      - scripts/cron-script.sh
   - name: notifications
     files:
       - notification-template.json

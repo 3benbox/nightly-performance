@@ -12,7 +12,7 @@ spec:
       resourceLimits:
         cpu: "4"
         memory: 4Gi
-      image: ceramicnetwork/js-ceramic:develop
+      image: 3boxben/js-ceramic:threadedSchemaValidation
       ipfs:
         rust:
           env:

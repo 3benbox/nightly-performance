@@ -7,14 +7,17 @@ spec:
   replicas: 2
   ttlSeconds: 14400
   ceramic:
-    - ipfs:
+    - resourceLimits:
+        cpu: "4"
+        memory: 4Gi
+      ipfs:
         rust:
           env:
             RUST_LOG: info,recon=trace
             CERAMIC_ONE_LOG_FORMAT: "json"
           resourceLimits:
             cpu: "4"
-            memory: 2Gi
+            memory: 4Gi
             storage: 10Gi
           image: public.ecr.aws/r5b3e0r5/3box/ceramic-one:latest
           storageClass: keramik-ssd

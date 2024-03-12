@@ -15,6 +15,7 @@ spec:
           env:
             RUST_LOG: info,recon=trace
             CERAMIC_ONE_LOG_FORMAT: "json"
+            SQLITE_TMPDIR: ":memory:"
           resourceLimits:
             cpu: "4"
             memory: 4Gi

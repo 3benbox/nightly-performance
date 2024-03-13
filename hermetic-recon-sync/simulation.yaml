@@ -1,0 +1,12 @@
+
+apiVersion: "keramik.3box.io/v1alpha1"
+kind: Simulation
+metadata:
+  name: recon-event-sync
+  namespace: keramik-ceramic-v4-dev # replace by script
+spec:
+  scenario: recon-event-sync
+  successRequestTarget: 30
+  # throttleRequests: 500
+  users: 10
+  runTime: 180

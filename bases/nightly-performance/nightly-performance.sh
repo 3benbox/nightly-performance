@@ -119,6 +119,11 @@ export SIMULATION_COLOR
 export DISCORD_WEBHOOK_URL
 
 # Send Discord notification
+# Only send a notification if the webhook URL is set
+if [[ -v DISCORD_WEBHOOK_URL_SUCCEEDED && -z "$DISCORD_WEBHOOK_URL_SUCCEEDED" ]]; then
+  echo "No Discord webhook URL set, skipping notification"
+  exit 0
+fi
 envsubst < /notifications/notification-template.json  > message.json
 cat message.json
 curl -v -H "Content-Type: application/json" -X POST -d @./message.json "$DISCORD_WEBHOOK_URL_SUCCEEDED"

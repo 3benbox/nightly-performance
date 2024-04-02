@@ -1,0 +1,19 @@
+namespace: nightly-performance-dev-transient-errors
+resources:
+  - ../bases/nightly-performance
+  - ./clusterrolebinding.yaml
+
+configMapGenerator:
+  - name: local-config
+    envs:
+      - ./local-config.env
+  - name: affinity
+    files:
+      - ./affinity.yaml
+  - name: network
+    files:
+      - ./network.yaml
+# patch the cronb job to mount the configmap for affinity
+patchesStrategicMerge:
+  - patches/affinity.yaml
+  - patches/network.yaml

@@ -1,0 +1,30 @@
+---
+apiVersion: "keramik.3box.io/v1alpha1"
+kind: Network
+metadata:
+  name: nightly-dev-hermetic
+spec:
+  replicas: 2
+  ttlSeconds: 14400
+  ceramic:
+    - resourceLimits:
+        cpu: "4"
+        memory: 4Gi
+      ipfs:
+        rust:
+          env:
+            RUST_LOG: info,recon=trace
+            CERAMIC_ONE_LOG_FORMAT: "json"
+            SQLITE_TMPDIR: ":memory:"
+          resourceLimits:
+            cpu: "4"
+            memory: 4Gi
+            storage: 10Gi
+          image: docker.io/3boxben/rust-ceramic:transient-libp2p-error
+          storageClass: keramik-ssd
+  # Use Kubo with CAS because it still needs pubsub
+  cas:
+    ipfs:
+      go: {}
+  monitoring:
+    namespaced: true

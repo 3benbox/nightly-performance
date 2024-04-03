@@ -1,4 +1,4 @@
-namespace: transient-errors-180m
+namespace: dev-postgres
 resources:
   - ../bases/nightly-performance
   - ./clusterrolebinding.yaml
@@ -13,10 +13,8 @@ configMapGenerator:
   - name: network
     files:
       - ./network.yaml
-  - name: simulation
-    files:
-      - ./simulation.yaml
 # patch the cronb job to mount the configmap for affinity
 patchesStrategicMerge:
   - patches/affinity.yaml
   - patches/network.yaml
+  - patches/cron-job.yaml

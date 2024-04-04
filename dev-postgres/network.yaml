@@ -2,7 +2,7 @@
 apiVersion: "keramik.3box.io/v1alpha1"
 kind: Network
 metadata:
-  name: nightly-dev-hermetic
+  name: nightly-dev-hermetic-test
 spec:
   replicas: 2
   ttlSeconds: 14400
@@ -10,6 +10,10 @@ spec:
     - resourceLimits:
         cpu: "4"
         memory: 4Gi
+      postgresResourceLimits:
+        cpu: "2"
+        memory: 4Gi
+        storage: 10Gi
       ipfs:
         rust:
           env:

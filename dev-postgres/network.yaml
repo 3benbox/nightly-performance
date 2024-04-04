@@ -2,7 +2,7 @@
 apiVersion: "keramik.3box.io/v1alpha1"
 kind: Network
 metadata:
-  name: nightly-dev-hermetic-test
+  name: nightly-dev-hermetic
 spec:
   replicas: 2
   ttlSeconds: 14400

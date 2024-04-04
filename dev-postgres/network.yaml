@@ -10,6 +10,10 @@ spec:
     - resourceLimits:
         cpu: "4"
         memory: 4Gi
+      postgresResourceLimits:
+        cpu: "2"
+        memory: 4Gi
+        storage: 10Gi
       ipfs:
         rust:
           env:

@@ -19,7 +19,7 @@ spec:
           env:
             RUST_LOG: info,recon=trace
             CERAMIC_ONE_LOG_FORMAT: "json"
-            DATABASE_URL: "postgres://ceramic:a414a8cf3615978ef0eb650350e00537a70e69ba@localhost:5432/ceramic"
+            CERAMIC_ONE_DATABASE_URL: "postgres://ceramic:a414a8cf3615978ef0eb650350e00537a70e69ba@localhost:5432/ceramic"
           resourceLimits:
             cpu: "4"
             memory: 4Gi

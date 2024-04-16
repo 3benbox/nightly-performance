@@ -1,0 +1,6 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: nightly-performance
+spec:
+  schedule: "0 */3 * * *"

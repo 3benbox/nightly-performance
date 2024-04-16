@@ -19,4 +19,5 @@ configMapGenerator:
 # patch the cronb job to mount the configmap for affinity
 patchesStrategicMerge:
   - patches/affinity.yaml
-  - patches/network.yaml
+  - patches/cron-job.yaml
+  - patches/network-sim.yaml

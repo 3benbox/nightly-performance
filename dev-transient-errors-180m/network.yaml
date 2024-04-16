@@ -20,7 +20,7 @@ spec:
             cpu: "4"
             memory: 4Gi
             storage: 10Gi
-          image: docker.io/3boxben/rust-ceramic:transient-libp2p-error
+          image: public.ecr.aws/r5b3e0r5/3box/ceramic-one:sync-id
           storageClass: keramik-ssd
   # Use Kubo with CAS because it still needs pubsub
   cas:

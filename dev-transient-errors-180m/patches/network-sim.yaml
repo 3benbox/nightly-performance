@@ -11,8 +11,13 @@ spec:
             - name: network
               configMap:
                 name: network
+            - name: simulation
+              configMap:
+                name: simulation
           containers:
             - name: nightly-performance
               volumeMounts:
                 - name: network
                   mountPath: /network
+                - name: simulation
+                  mountPath: /simulation

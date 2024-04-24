@@ -7,4 +7,5 @@ spec:
   scenario: recon-event-sync
   users: 10
   runTime: 20
-  #successRequestTarget: 0
+  successRequestTarget: 300
+  throttleRequests: 400

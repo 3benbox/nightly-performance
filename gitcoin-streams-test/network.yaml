@@ -1,0 +1,24 @@
+---
+apiVersion: "keramik.3box.io/v1alpha1"
+kind: Network
+metadata:
+  name: gitcoin-streams-test
+spec:
+  replicas: 2
+  ttlSeconds: 14400
+  ceramic:
+    - resourceLimits:
+        cpu: "4"
+        memory: 1Gi
+      ipfs:
+        go:
+          resourceLimits:
+            cpu: "4"
+            memory: 2Gi
+            storage: 10Gi
+  # Use Kubo with CAS because it still needs pubsub
+  cas:
+    ipfs:
+      go: {}
+  monitoring:
+    namespaced: true

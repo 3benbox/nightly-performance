@@ -1,0 +1,18 @@
+namespace: ceramic-new-streams-20m
+resources:
+  - ../bases/nightly-performance
+  - ./clusterrolebinding.yaml
+
+configMapGenerator:
+  - name: local-config
+    envs:
+      - ./local-config.env
+  - name: simulation
+    files:
+      - ./simulation.yaml
+  - name: network
+    files:
+      - ./network.yaml
+
+patchesStrategicMerge:
+  - patches/network-sim.yaml

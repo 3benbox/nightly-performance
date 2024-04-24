@@ -1,0 +1,11 @@
+
+apiVersion: "keramik.3box.io/v1alpha1"
+kind: Simulation
+metadata:
+  name: recon-event-sync3-20m
+spec:
+  scenario: recon-event-sync
+  users: 10
+  runTime: 20
+  successRequestTarget: 100
+  throttleRequests: 200

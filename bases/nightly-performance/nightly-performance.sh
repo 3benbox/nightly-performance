@@ -9,6 +9,10 @@ NETWORK_NAME=${JOB_NAMESPACE}-$(date +%Y-%m-%d-%H)
 export NETWORK_NAME
 NETWORK_NAMESPACE=keramik-${NETWORK_NAME}
 export NETWORK_NAMESPACE
+AFFINITY_FILE=${AFFINITY_FILE:-}
+export AFFINITY_FILE
+AFFINITY_TAG=${AFFINITY_TAG:-}
+export AFFINITY_TAG
 
 curl -L https://github.com/mikefarah/yq/releases/download/v4.40.7/yq_linux_amd64 -o yq
 chmod +x yq

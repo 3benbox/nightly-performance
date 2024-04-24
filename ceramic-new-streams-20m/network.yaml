@@ -7,7 +7,13 @@ spec:
   replicas: 2
   ttlSeconds: 14400
   ceramic:
-    - ipfs:
+    - env:
+        CERAMIC_RECON_MODE: "true"
+      resourceLimits:
+        cpu: "4"
+        memory: 4Gi
+      image: ceramicnetwork/js-ceramic:develop
+      ipfs:
         rust:
           env:
             RUST_LOG: info,recon=trace

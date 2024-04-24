@@ -4,7 +4,7 @@ kind: Simulation
 metadata:
   name: ceramic-new-streams-20m
 spec:
-  scenario: ceramic-new-streams
+  scenario: ceramic-new-streams-benchmark
   users: 10
   runTime: 20
   successRequestTarget: 100

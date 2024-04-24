@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ceramic-new-streams-1w!!!TEMPLATE!!!
+  name: ceramic-new-streams-1w-2024-04-24
   namespace: ceramic-new-streams-1w
 spec:
   completions: 1

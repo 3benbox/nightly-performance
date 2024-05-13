@@ -5,7 +5,7 @@ metadata:
   name: ceramic-new-streams-180m
 spec:
   scenario: ceramic-new-streams-benchmark
-  users: 10
+  users: 150
   runTime: 180
   successRequestTarget: 100
   throttleRequests: 200

@@ -4,29 +4,27 @@ kind: Network
 metadata:
   name: nightly-dev-hermetic # Placeholder for script
 spec:
-  replicas: 2
-  ttlSeconds: 14400
+  casApiUrl: https://cas-dev-direct.3boxlabs.com
   ceramic:
     - env:
         CERAMIC_RECON_MODE: "true"
       resourceLimits:
-        cpu: "4"
+        cpu: "2"
         memory: 4Gi
       image: ceramicnetwork/js-ceramic:develop
       ipfs:
         rust:
           env:
-            RUST_LOG: info,recon=trace
             CERAMIC_ONE_LOG_FORMAT: "json"
           resourceLimits:
-            cpu: "4"
+            cpu: "2"
             memory: 4Gi
             storage: 10Gi
           image: public.ecr.aws/r5b3e0r5/3box/ceramic-one:latest
           storageClass: keramik-ssd
-  # Use Kubo with CAS because it still needs pubsub
-  cas:
-    ipfs:
-      go: {}
+  ethRpcUrl: ""
+  networkType: dev-unstable
   monitoring:
     namespaced: true
+  replicas: 2
+  ttlSeconds: 14400

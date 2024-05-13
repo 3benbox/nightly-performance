@@ -10,10 +10,9 @@ spec:
     - ipfs:
         rust:
           env:
-            RUST_LOG: info,recon=trace
             CERAMIC_ONE_LOG_FORMAT: "json"
           resourceLimits:
-            cpu: "4"
+            cpu: "2"
             memory: 4Gi
             storage: 10Gi
           image: public.ecr.aws/r5b3e0r5/3box/ceramic-one:latest

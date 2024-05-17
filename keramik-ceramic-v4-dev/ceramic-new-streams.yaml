@@ -1,0 +1,11 @@
+
+apiVersion: "keramik.3box.io/v1alpha1"
+kind: Simulation
+metadata:
+  name: ceramic-new-streams-20m
+spec:
+  scenario: ceramic-new-streams-benchmark
+  users: 150
+  runTime: 20
+  successRequestTarget: 100
+  throttleRequests: 200

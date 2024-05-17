@@ -1,0 +1,46 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: performance-run
+  labels:
+    app: performance-run
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: performance-run
+  template:
+    metadata:
+      labels:
+        app: performance-run
+    spec:
+      serviceAccountName: performance
+      containers:
+        - name: performance
+          image: google/cloud-sdk
+          command: ["bash", "/scripts/run.sh"]
+          env:
+            - name: JOB_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          resources:
+            requests:
+              memory: "1Gi"
+              cpu: "1"
+            limits:
+              memory: "2Gi"
+              cpu: "2"
+          volumeMounts:
+            - name: scripts
+              mountPath: /scripts
+            - name: simulations
+              mountPath: /simulations
+      volumes:
+        - name: scripts
+          configMap:
+            name: scripts
+        - name: simulations
+          configMap:
+            name: simulations

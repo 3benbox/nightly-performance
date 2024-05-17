@@ -1,0 +1,13 @@
+namespace: keramik-ceramic-v4-dev
+resources:
+  - clusterrolebinding.yaml
+  - deployment-run.yaml
+
+configMapGenerator:
+  - name: simulations
+    files:
+      - ceramic-new-streams.yaml
+      - recon-event-sync.yaml
+  - name: scripts
+    files:
+      - run.sh

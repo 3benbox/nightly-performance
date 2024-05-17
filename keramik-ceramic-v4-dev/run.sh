@@ -12,7 +12,7 @@ WAIT_MINUTES=10
 # Start loop
 i=0
 while true; do
-
+  echo "########## Loop iteration $i started ##########"
   # Check for existing simulations
   EXISTING_SIMUlATION=$(kubectl get simulations.keramik.3box.io --no-headers=true -o name -n "$NETWORK_NAMESPACE")
   if [[ -n "$EXISTING_SIMUlATION" ]]; then
@@ -54,6 +54,7 @@ while true; do
 
   # Sleep for WAIT_MINUTES
   sleep $((WAIT_MINUTES * 60))
-
+  date
+  echo "########## Loop iteration $i completed ##########"
   i=$((i + 1))
 done

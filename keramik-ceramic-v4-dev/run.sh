@@ -7,7 +7,7 @@ chmod +x yq
 
 NETWORK_NAMESPACE=${JOB_NAMESPACE} # From deployment env introspection
 export NETWORK_NAMESPACE
-WAIT_MINUTES=10
+WAIT_MINUTES=20
 
 # Start loop
 i=0
